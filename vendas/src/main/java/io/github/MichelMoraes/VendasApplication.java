@@ -12,7 +12,7 @@ public class VendasApplication {
 
     @GetMapping("/hello")
     public String helloWorld(){
-        return "Hello World, uma aplicação Spring BOOT REST > TOP";
+        return "Hello World, uma aplicação Spring BOOT ";
     }
 
     public static void main(String[] args) {
