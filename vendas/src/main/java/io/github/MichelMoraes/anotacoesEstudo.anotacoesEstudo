@@ -1,0 +1,58 @@
+Arquitetura do Spring
+
+                    container
+
+  @Configurration                 @Componente
+
+
+  @Bean                      @Controller @Repository @Service
+
+
+
+  A injeção pode ser feita com @Autowired ou fazendo um simples construtor
+
+
+1 -  As configs do arquivo application.properties que tb pode ser
+ application.yml, podem ser encontradas
+  em Spring Boot  Common Aplication Properties
+  https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
+
+
+// mudar porta
+server.port=8081
+//muda contexto - caminho url
+server.servlet.context-path=/sistema-vendas
+
+// define qual app properties será usado
+spring.profiles.active=production
+
+
+PAra nao ficar dependendo de colocar String para definir anotations
+podemos criar nossas próprias anotations customizadas
+
+
+Exemplo da Classe Animal
+Criando uma classe aninal com cachorro e gato
+Ao criar as anotations gato e cachorro
+Na classe animal configuration tem o retorno de cada animal
+quando formos rodar um CommandLineRunner executar()
+  return args ->
+    animal.fazerBarrulho();
+ Pondo as anotacoes @Gato ou @Cachorro o spring sabe qual
+ Fyeld ele vai buscar em configuration
+
+
+ *******  CONFIGURAÇÂO do BANCO DE DADOS  *******
+
+ DataSource para conexão
+
+ spring.datasource.url=jdbc:h2:mem:tesdb;
+ spring.datasource.driver-class-name=org.h2.Driver
+ spring.datasource.username=sa
+ spring.datasource.password=password
+ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+ spring.h2.console.enabled=true
+ spring.h2.console.path=/h2-console
+
+
