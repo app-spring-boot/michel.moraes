@@ -55,4 +55,33 @@ quando formos rodar um CommandLineRunner executar()
  spring.h2.console.enabled=true
  spring.h2.console.path=/h2-console
 
+O arquivo data.sql quando starta aplicação é executado automaticamente
+então caso não queira isso, apague ou renomeie para outro nome.
+
+A anotação @Transactional é obrigatório em métodos que fazem
+transações com o BANCO DE DADOS
+
+
+
+//   ====    RECURSO SPRING DATA  =====   //
+
+// esta consulta é similar a : "select c from cliente c
+    // where c.nome like :nome "
+    // declarar parametros na mesma ordem
+    List<Cliente> findByNomeLike(String nome);
+
+    List<Cliente> findByNomeOrIdOrderById(String nome, Integer id);
+
+    // retornar unico result
+    Cliente findOneByNome(String nome);
+
+    // ex booleano
+    boolean existsByNome(String nome);
+
+// mostrar sql e formatar - no CONSOLE
+spring.jpa.properties.hibernate.show_sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+
+
 

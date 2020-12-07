@@ -1,3 +1,7 @@
+//foi utilizado quando fiz o teste com JDBC, para ele ser executado
+//automaticamente deverá ter o nome data.sql
+
+/*
 create table cliente (
     id INTEGER primary key auto_increment,
     nome varchar(100)
@@ -26,3 +30,4 @@ create table item_pedido (
 
 );
 
+*/

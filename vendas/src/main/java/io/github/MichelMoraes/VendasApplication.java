@@ -14,6 +14,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @SpringBootApplication
 
 /*Esta anotations faz o escanemanto das configuracoes, tem uma finalidade mais apropriada quando
@@ -41,19 +43,28 @@ public class VendasApplication {
     @Bean
     public CommandLineRunner init (@Autowired ClientesRepository clientesRepository){
         return args -> {
-            Cliente cliente = new Cliente();
-            cliente.setNome("Michel Moraes");
-            clientesRepository.salvar(cliente);
+
+            clientesRepository.save(new Cliente("outro cliente"));
+            clientesRepository.save(new Cliente("MICHEL"));
+
+           // List<Cliente> todosClientes = clientesRepository.findAll();
+           // todosClientes.forEach(System.out::println);
+
+            List<Cliente> result = clientesRepository.buscarPorNome("MICHEL");
+            //System.out.println("EXISTE UM CLIENTE MICHEL? "  + (existe == true ? "Sim" : "Não" ));
+
+
+            result.get(0).getNome();
+
+            clientesRepository.findAll();
+
 
         };
-
     }
 
     public static void main(String[] args) {
         SpringApplication.run(VendasApplication.class, args);
     }
-
-
 
 
 }

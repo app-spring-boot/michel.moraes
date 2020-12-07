@@ -20,9 +20,8 @@ public class ClientesService {
 
     public void salvarCliente(Cliente cliente) {
         validarCliente(cliente);
-        ClientesRepository clientesRepository = new ClientesRepository();
-        clientesRepository.salvar(cliente);
 
+        repository.save(cliente);
     }
 
     public void validarCliente(Cliente cliente) {
